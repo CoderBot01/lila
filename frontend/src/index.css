@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: #0d0f14;
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #12151d; }
+::-webkit-scrollbar-thumb { background: #1e2435; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #2d3748; }
+
+/* Canvas container */
+.canvas-container {
+  position: relative;
+  overflow: hidden;
+  background: #0a0c10;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  background: rgba(18, 21, 29, 0.95);
+  border: 1px solid #1e2435;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+
+/* Glow effects */
+.glow-red { box-shadow: 0 0 12px rgba(230, 57, 70, 0.3); }
+.glow-gold { box-shadow: 0 0 12px rgba(244, 162, 97, 0.3); }
+.glow-blue { box-shadow: 0 0 12px rgba(69, 123, 157, 0.3); }
+
+/* Animated pulse for live events */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.pulse-ring {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+/* Playback scrubber */
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 4px;
+  background: #1e2435;
+  border-radius: 2px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #e63946;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #0d0f14;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+}
+
+/* Tag badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Panel transitions */
+.panel-enter {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
